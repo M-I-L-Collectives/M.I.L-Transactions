@@ -2,12 +2,18 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
 <!-- Change root element type as needed -->
 
-<AnchorPane prefHeight="482.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil.tran.Controllers.DashboardController">
-   <children>
-      <Label  layoutX="79.0" layoutY="59.0" text="Welcome to Dashboard" />
-      <Label fx:id="labelUsername" layoutX="79.0" layoutY="96.0" prefHeight="30.0" prefWidth="146.0" text="&quot;&quot;" />
-   </children>
-</AnchorPane>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mil.tran.Controllers.DashboardController">
+   <center>
+      <AnchorPane prefHeight="482.0" prefWidth="717.0">
+         <children>
+            <Label layoutX="79.0" layoutY="59.0" text="Welcome to Dashboard" />
+            <Label fx:id="labelUsername" layoutX="79.0" layoutY="96.0" prefHeight="30.0" prefWidth="146.0" text="&quot;&quot;" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
