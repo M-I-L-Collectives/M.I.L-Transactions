@@ -60,7 +60,7 @@ public class LoginController implements Initializable {
         } else {
             infoBox("Login successful", "Success", null);
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/mil/tran/Dashboard.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/mil/tran/fxml/Dashboard.fxml"));
                 Parent root = fxmlLoader.load();
 
                 Stage stage = new Stage();

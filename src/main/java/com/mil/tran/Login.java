@@ -12,7 +12,7 @@ public class Login extends Application {
     public void start(Stage primaryStage) throws Exception {
         try {
             Parent parentRoot = FXMLLoader
-                    .load(getClass().getResource("Login.fxml"));
+                    .load(getClass().getResource("/com/mil/tran/fxml/Login.fxml"));
             primaryStage.setTitle("Login");
             primaryStage.setResizable(false);
             primaryStage.setIconified(false);
