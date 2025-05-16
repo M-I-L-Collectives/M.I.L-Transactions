@@ -46,6 +46,7 @@ public class TablesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        addListenerForTable();
         jdbc = new JdbcDao();
         showTable();
     }
@@ -104,4 +105,47 @@ public class TablesController implements Initializable {
     private void saveTable(ActionEvent event) {
         insertRecord();
     }
+
+    private void addListenerForTable() {
+        tableTables.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                btnUpdate.setDisable(false);
+                btnDelete.setDisable(false);
+
+                tfTableName.setText(newSelection.getName());
+            } else {
+                tfTableName.setText("");
+                btnUpdate.setDisable(true);
+                btnDelete.setDisable(true);
+            }
+        });
+    }
+
+    @FXML
+    private void editEntry(ActionEvent event) {
+        Connection connection = jdbc.getConnection();
+        try {
+            Tables table = tableTables.getSelectionModel().getSelectedItem();
+            String query = "UPDATE tbltables SET name = '" + tfTableName.getText() + "' WHERE id = '" + table.getId()
+                    + "'";
+            executeQuery(query);
+            showTable();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void deleteEntry(ActionEvent event) {
+        Connection connection = jdbc.getConnection();
+        try {
+            Tables table = tableTables.getSelectionModel().getSelectedItem();
+            String query = "DELETE FROM tbltables WHERE id = '" + table.getId() + "'";
+            executeQuery(query);
+            showTable();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }
